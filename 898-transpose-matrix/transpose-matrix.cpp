@@ -1,18 +1,17 @@
 class Solution {
 public:
-    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
-        int n = matrix.size();
-        int m = matrix[0].size();
+  vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+    int m = matrix.size(); 
+    int n = matrix[0].size();
 
-        vector<vector<int>> B(m, vector<int>(n,0));
+    vector<vector<int>> B(n, vector<int>(m));  
 
-        for(int j=0; j<m; j++){
-            for(int i=0; i<n; i++){
-                B[j][i] = matrix[i][j];
-            }
-        }
-        return B;
-
-
+    for (int i = 0; i < m; ++i) {
+      for (int j = 0; j < n; ++j) {
+        B[j][i] = matrix[i][j]; 
+      }
     }
+
+    return B;
+  }
 };
