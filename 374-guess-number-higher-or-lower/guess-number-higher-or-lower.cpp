@@ -9,19 +9,22 @@
 
 class Solution {
 public:
-     int guessNumber(int n) {
-        int low=1,high=n;
-        int mid;
-        while(high>=low)
-        {
-            mid=low+(high-low)/2;
-            if(guess(mid)==-1)
-                high=mid-1;
-            if(guess(mid)==1)
-                low=mid+1;
-            if(guess(mid)==0)
-                break;
+    int guessNumber(int n) {
+        int left = 0;
+        int right = n;
+
+        while(right>=left){
+            int m = left + (right-left)/2;
+            if(guess(m)<0){
+                right = m-1;
+            }
+            else if(guess(m)>0){
+                left = m+1;
+            }
+            else{
+                return m;
+            }
         }
-        return mid;
+        return 1;
     }
 };
