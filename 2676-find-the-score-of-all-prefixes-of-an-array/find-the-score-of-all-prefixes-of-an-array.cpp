@@ -2,7 +2,7 @@ class Solution {
 public:
     vector<long long> findPrefixScore(vector<int>& nums) {
         vector<long long>ans;
-        long long mx=0, sum=0;
+        long long mx=0;
         for(int i=0; i<nums.size(); i++){
             mx = max(mx, nums[i]+0LL);
             ans.push_back(mx+nums[i]);
